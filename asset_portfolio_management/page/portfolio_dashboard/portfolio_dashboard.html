@@ -1,0 +1,50 @@
+<div class="portfolio-dashboard-wrapper">
+	<div class="dashboard-header">
+		<h2>Investment Portfolio Overview</h2>
+		<p class="text-muted">Consolidated real-time asset tracking and performance metrics</p>
+	</div>
+	
+	<!-- KPI Cards -->
+	<div class="kpi-grid">
+		<div class="kpi-card glassmorphic shadow-sm" id="kpi-total-investment">
+			<div class="kpi-icon icon-investment">💵</div>
+			<div class="kpi-details">
+				<div class="kpi-label">Total Investment</div>
+				<div class="kpi-value" id="val-total-investment">0.00</div>
+			</div>
+		</div>
+		<div class="kpi-card glassmorphic shadow-sm" id="kpi-total-current">
+			<div class="kpi-icon icon-current">📈</div>
+			<div class="kpi-details">
+				<div class="kpi-label">Current Value</div>
+				<div class="kpi-value" id="val-total-current">0.00</div>
+			</div>
+		</div>
+		<div class="kpi-card glassmorphic shadow-sm" id="kpi-net-gain">
+			<div class="kpi-icon icon-gain">💰</div>
+			<div class="kpi-details">
+				<div class="kpi-label">Total Gain / Loss</div>
+				<div class="kpi-value" id="val-net-gain">0.00</div>
+			</div>
+		</div>
+		<div class="kpi-card glassmorphic shadow-sm" id="kpi-overall-return">
+			<div class="kpi-icon icon-return">⚡</div>
+			<div class="kpi-details">
+				<div class="kpi-label">Overall Return</div>
+				<div class="kpi-value" id="val-overall-return">0.00%</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Charts Grid -->
+	<div class="charts-grid">
+		<div class="chart-container glassmorphic card-padding shadow-sm">
+			<h4>Asset Allocation (By Current Value)</h4>
+			<div class="chart-area" id="chart-asset-type"></div>
+		</div>
+		<div class="chart-container glassmorphic card-padding shadow-sm">
+			<h4>Provider Allocation (By Current Value)</h4>
+			<div class="chart-area" id="chart-provider"></div>
+		</div>
+	</div>
+</div>

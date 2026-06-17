@@ -1,0 +1,12 @@
+include *.txt
+include *.md
+recursive-include asset_portfolio_management *.html
+recursive-include asset_portfolio_management *.ico
+recursive-include asset_portfolio_management *.js
+recursive-include asset_portfolio_management *.json
+recursive-include asset_portfolio_management *.md
+recursive-include asset_portfolio_management *.png
+recursive-include asset_portfolio_management *.css
+recursive-include asset_portfolio_management *.svg
+recursive-include asset_portfolio_management *.txt
+recursive-include asset_portfolio_management *.py

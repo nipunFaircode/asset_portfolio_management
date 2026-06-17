@@ -1,0 +1,475 @@
+{
+ "actions": [],
+ "autoname": "field:asset_id",
+ "creation": "2026-06-17 18:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "asset_info",
+  "asset_id",
+  "asset_name",
+  "asset_type",
+  "provider",
+  "col_break1",
+  "owner",
+  "status",
+  "date_of_investment",
+  "maturity_date",
+  "performance_metrics",
+  "investment_value",
+  "current_value",
+  "xirr",
+  "col_break2",
+  "total_gain_loss",
+  "total_return_pct",
+  "stock_section",
+  "demat_account",
+  "industry",
+  "stock_category",
+  "stock_col_break",
+  "quantity_held",
+  "avg_purchase_price",
+  "current_market_price",
+  "last_updated_date",
+  "bond_section",
+  "bond_demat_account",
+  "bond_face_value",
+  "no_of_bonds",
+  "bond_rating",
+  "security_class",
+  "bond_col_break",
+  "interest_paid",
+  "interest_unpaid",
+  "principal_paid",
+  "principal_unpaid",
+  "interest_frequency",
+  "repayment_priority",
+  "bond_schedules_section",
+  "bond_interest_schedule",
+  "bond_principal_schedule",
+  "fd_section",
+  "fd_account_number",
+  "fd_interest_rate",
+  "fd_interest_frequency",
+  "fd_col_break",
+  "fd_interest_paid",
+  "fd_interest_unpaid",
+  "fd_principal_paid",
+  "fd_principal_unpaid",
+  "fd_schedules_section",
+  "fd_interest_schedule",
+  "fd_principal_schedule",
+  "sa_section",
+  "sa_account_number",
+  "notes_section",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "asset_info",
+   "fieldtype": "Section Break",
+   "label": "Asset Information"
+  },
+  {
+   "fieldname": "asset_id",
+   "fieldtype": "Data",
+   "label": "Asset ID",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "asset_name",
+   "fieldtype": "Data",
+   "label": "Asset Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "asset_type",
+   "fieldtype": "Select",
+   "label": "Asset Type",
+   "options": "Stock\nBond\nFixed Deposit\nSavings Account\nPF\nPPF\nNPS",
+   "reqd": 1
+  },
+  {
+   "fieldname": "provider",
+   "fieldtype": "Data",
+   "label": "Provider / Institution"
+  },
+  {
+   "fieldname": "col_break1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "owner",
+   "fieldtype": "Link",
+   "label": "Owner",
+   "options": "Portfolio Owner",
+   "reqd": 1
+  },
+  {
+   "default": "Active",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Active\nMatured\nClosed",
+   "reqd": 1
+  },
+  {
+   "fieldname": "date_of_investment",
+   "fieldtype": "Date",
+   "label": "Date of Investment"
+  },
+  {
+   "fieldname": "maturity_date",
+   "fieldtype": "Date",
+   "label": "Maturity Date",
+   "depends_on": "eval:doc.asset_type=='Bond' || doc.asset_type=='Fixed Deposit'"
+  },
+  {
+   "fieldname": "performance_metrics",
+   "fieldtype": "Section Break",
+   "label": "Performance & Returns"
+  },
+  {
+   "default": "0",
+   "fieldname": "investment_value",
+   "fieldtype": "Currency",
+   "label": "Investment Value",
+   "read_only": 0
+  },
+  {
+   "default": "0",
+   "fieldname": "current_value",
+   "fieldtype": "Currency",
+   "label": "Current Value"
+  },
+  {
+   "default": "0",
+   "fieldname": "xirr",
+   "fieldtype": "Percent",
+   "label": "XIRR",
+   "read_only": 1
+  },
+  {
+   "fieldname": "col_break2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_gain_loss",
+   "fieldtype": "Currency",
+   "label": "Total Gain / Loss",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "total_return_pct",
+   "fieldtype": "Percent",
+   "label": "Total Return %",
+   "read_only": 1
+  },
+  {
+   "fieldname": "stock_section",
+   "fieldtype": "Section Break",
+   "label": "Stock Details",
+   "depends_on": "eval:doc.asset_type=='Stock'"
+  },
+  {
+   "fieldname": "demat_account",
+   "fieldtype": "Link",
+   "label": "Demat Account",
+   "options": "Demat Account",
+   "depends_on": "eval:doc.asset_type=='Stock'"
+  },
+  {
+   "fieldname": "industry",
+   "fieldtype": "Data",
+   "label": "Industry",
+   "depends_on": "eval:doc.asset_type=='Stock'"
+  },
+  {
+   "fieldname": "stock_category",
+   "fieldtype": "Select",
+   "label": "Stock Category",
+   "options": "\nLarge Cap\nMid Cap\nSmall Cap\nMicro Cap",
+   "depends_on": "eval:doc.asset_type=='Stock'"
+  },
+  {
+   "fieldname": "stock_col_break",
+   "fieldtype": "Column Break",
+   "depends_on": "eval:doc.asset_type=='Stock'"
+  },
+  {
+   "default": "0",
+   "fieldname": "quantity_held",
+   "fieldtype": "Float",
+   "label": "Quantity Held",
+   "read_only": 1,
+   "depends_on": "eval:doc.asset_type=='Stock'"
+  },
+  {
+   "default": "0",
+   "fieldname": "avg_purchase_price",
+   "fieldtype": "Currency",
+   "label": "Average Purchase Price",
+   "read_only": 1,
+   "depends_on": "eval:doc.asset_type=='Stock'"
+  },
+  {
+   "default": "0",
+   "fieldname": "current_market_price",
+   "fieldtype": "Currency",
+   "label": "Current Market Price",
+   "depends_on": "eval:doc.asset_type=='Stock'"
+  },
+  {
+   "fieldname": "last_updated_date",
+   "fieldtype": "Datetime",
+   "label": "Last Updated Date",
+   "read_only": 1,
+   "depends_on": "eval:doc.asset_type=='Stock'"
+  },
+  {
+   "fieldname": "bond_section",
+   "fieldtype": "Section Break",
+   "label": "Bond Details",
+   "depends_on": "eval:doc.asset_type=='Bond'"
+  },
+  {
+   "fieldname": "bond_demat_account",
+   "fieldtype": "Link",
+   "label": "Demat Account",
+   "options": "Demat Account",
+   "depends_on": "eval:doc.asset_type=='Bond'"
+  },
+  {
+   "default": "0",
+   "fieldname": "bond_face_value",
+   "fieldtype": "Currency",
+   "label": "Bond Face Value",
+   "depends_on": "eval:doc.asset_type=='Bond'"
+  },
+  {
+   "default": "0",
+   "fieldname": "no_of_bonds",
+   "fieldtype": "Int",
+   "label": "Number of Bonds",
+   "depends_on": "eval:doc.asset_type=='Bond'"
+  },
+  {
+   "fieldname": "bond_rating",
+   "fieldtype": "Select",
+   "label": "Bond Rating",
+   "options": "AAA\nAA+\nAA\nA\nBBB\nOthers",
+   "depends_on": "eval:doc.asset_type=='Bond'"
+  },
+  {
+   "fieldname": "security_class",
+   "fieldtype": "Select",
+   "label": "Security Class",
+   "options": "Secured Debenture\nUnsecured Debenture\nGovernment Bond\nCorporate Bond",
+   "depends_on": "eval:doc.asset_type=='Bond'"
+  },
+  {
+   "fieldname": "bond_col_break",
+   "fieldtype": "Column Break",
+   "depends_on": "eval:doc.asset_type=='Bond'"
+  },
+  {
+   "default": "0",
+   "fieldname": "interest_paid",
+   "fieldtype": "Currency",
+   "label": "Interest Paid",
+   "read_only": 1,
+   "depends_on": "eval:doc.asset_type=='Bond'"
+  },
+  {
+   "default": "0",
+   "fieldname": "interest_unpaid",
+   "fieldtype": "Currency",
+   "label": "Interest Unpaid",
+   "read_only": 1,
+   "depends_on": "eval:doc.asset_type=='Bond'"
+  },
+  {
+   "default": "0",
+   "fieldname": "principal_paid",
+   "fieldtype": "Currency",
+   "label": "Principal Paid",
+   "read_only": 1,
+   "depends_on": "eval:doc.asset_type=='Bond'"
+  },
+  {
+   "default": "0",
+   "fieldname": "principal_unpaid",
+   "fieldtype": "Currency",
+   "label": "Principal Unpaid",
+   "read_only": 1,
+   "depends_on": "eval:doc.asset_type=='Bond'"
+  },
+  {
+   "fieldname": "interest_frequency",
+   "fieldtype": "Select",
+   "label": "Interest Frequency",
+   "options": "Monthly\nQuarterly\nHalf-Yearly\nYearly",
+   "depends_on": "eval:doc.asset_type=='Bond'"
+  },
+  {
+   "fieldname": "repayment_priority",
+   "fieldtype": "Select",
+   "label": "Repayment Priority",
+   "options": "Senior Secured\nSenior Unsecured\nSubordinated\nJunior",
+   "depends_on": "eval:doc.asset_type=='Bond'"
+  },
+  {
+   "fieldname": "bond_schedules_section",
+   "fieldtype": "Section Break",
+   "label": "Bond Schedule Logs",
+   "depends_on": "eval:doc.asset_type=='Bond'"
+  },
+  {
+   "fieldname": "bond_interest_schedule",
+   "fieldtype": "Table",
+   "label": "Interest Repayments Table",
+   "options": "Bond Interest Log",
+   "depends_on": "eval:doc.asset_type=='Bond'"
+  },
+  {
+   "fieldname": "bond_principal_schedule",
+   "fieldtype": "Table",
+   "label": "Principal Repayments Table",
+   "options": "Bond Principal Log",
+   "depends_on": "eval:doc.asset_type=='Bond'"
+  },
+  {
+   "fieldname": "fd_section",
+   "fieldtype": "Section Break",
+   "label": "Fixed Deposit Details",
+   "depends_on": "eval:doc.asset_type=='Fixed Deposit'"
+  },
+  {
+   "fieldname": "fd_account_number",
+   "fieldtype": "Data",
+   "label": "Account Number",
+   "depends_on": "eval:doc.asset_type=='Fixed Deposit'"
+  },
+  {
+   "default": "0",
+   "fieldname": "fd_interest_rate",
+   "fieldtype": "Percent",
+   "label": "Interest Rate",
+   "depends_on": "eval:doc.asset_type=='Fixed Deposit'"
+  },
+  {
+   "fieldname": "fd_interest_frequency",
+   "fieldtype": "Select",
+   "label": "Interest Payment Frequency",
+   "options": "Monthly\nQuarterly\nHalf-Yearly\nYearly\nOn Maturity",
+   "depends_on": "eval:doc.asset_type=='Fixed Deposit'"
+  },
+  {
+   "fieldname": "fd_col_break",
+   "fieldtype": "Column Break",
+   "depends_on": "eval:doc.asset_type=='Fixed Deposit'"
+  },
+  {
+   "default": "0",
+   "fieldname": "fd_interest_paid",
+   "fieldtype": "Currency",
+   "label": "Interest Paid",
+   "read_only": 1,
+   "depends_on": "eval:doc.asset_type=='Fixed Deposit'"
+  },
+  {
+   "default": "0",
+   "fieldname": "fd_interest_unpaid",
+   "fieldtype": "Currency",
+   "label": "Interest Unpaid",
+   "read_only": 1,
+   "depends_on": "eval:doc.asset_type=='Fixed Deposit'"
+  },
+  {
+   "default": "0",
+   "fieldname": "fd_principal_paid",
+   "fieldtype": "Currency",
+   "label": "Principal Paid",
+   "read_only": 1,
+   "depends_on": "eval:doc.asset_type=='Fixed Deposit'"
+  },
+  {
+   "default": "0",
+   "fieldname": "fd_principal_unpaid",
+   "fieldtype": "Currency",
+   "label": "Principal Unpaid",
+   "read_only": 1,
+   "depends_on": "eval:doc.asset_type=='Fixed Deposit'"
+  },
+  {
+   "fieldname": "fd_schedules_section",
+   "fieldtype": "Section Break",
+   "label": "Fixed Deposit Schedules",
+   "depends_on": "eval:doc.asset_type=='Fixed Deposit'"
+  },
+  {
+   "fieldname": "fd_interest_schedule",
+   "fieldtype": "Table",
+   "label": "FD Interest Log Table",
+   "options": "FD Interest Log",
+   "depends_on": "eval:doc.asset_type=='Fixed Deposit'"
+  },
+  {
+   "fieldname": "fd_principal_schedule",
+   "fieldtype": "Table",
+   "label": "FD Principal Log Table",
+   "options": "FD Principal Log",
+   "depends_on": "eval:doc.asset_type=='Fixed Deposit'"
+  },
+  {
+   "fieldname": "sa_section",
+   "fieldtype": "Section Break",
+   "label": "Savings Account Details",
+   "depends_on": "eval:doc.asset_type=='Savings Account'"
+  },
+  {
+   "fieldname": "sa_account_number",
+   "fieldtype": "Data",
+   "label": "Account Number",
+   "depends_on": "eval:doc.asset_type=='Savings Account'"
+  },
+  {
+   "fieldname": "notes_section",
+   "fieldtype": "Section Break",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-06-17 18:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Asset Portfolio Management",
+ "name": "Asset Portfolio",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,13 @@
+{
+ "creation": "2026-06-17 18:00:00.000000",
+ "docstatus": 0,
+ "doctype": "Report",
+ "is_standard": "Yes",
+ "modified": "2026-06-17 18:00:00.000000",
+ "module": "Asset Portfolio Management",
+ "name": "Portfolio Allocation",
+ "owner": "Administrator",
+ "ref_doctype": "Asset Portfolio",
+ "report_name": "Portfolio Allocation",
+ "report_type": "Script Report"
+}

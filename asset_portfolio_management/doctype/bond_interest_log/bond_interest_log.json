@@ -1,0 +1,54 @@
+{
+ "actions": [],
+ "creation": "2026-06-17 18:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "payment_date",
+  "interest_amount",
+  "period_covered",
+  "status"
+ ],
+ "fields": [
+  {
+   "fieldname": "payment_date",
+   "fieldtype": "Date",
+   "label": "Payment Date",
+   "in_list_view": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "interest_amount",
+   "fieldtype": "Currency",
+   "label": "Interest Amount",
+   "in_list_view": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "period_covered",
+   "fieldtype": "Data",
+   "label": "Period Covered",
+   "in_list_view": 1
+  },
+  {
+   "default": "Pending",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Paid\nPending",
+   "in_list_view": 1,
+   "reqd": 1
+  }
+ ],
+ "istable": 1,
+ "modified": "2026-06-17 18:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Asset Portfolio Management",
+ "name": "Bond Interest Log",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

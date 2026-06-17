@@ -1,0 +1,1 @@
+# No external packages needed. The app relies on pure python calculations and standard Frappe modules.

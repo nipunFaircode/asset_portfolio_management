@@ -1,0 +1,138 @@
+/* Premium Glassmorphic Styles for Portfolio Dashboard */
+
+.portfolio-dashboard-wrapper {
+	padding: 20px;
+	font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+	background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+	min-height: 100vh;
+	border-radius: 12px;
+}
+
+.dashboard-header {
+	margin-bottom: 30px;
+}
+
+.dashboard-header h2 {
+	font-size: 28px;
+	font-weight: 700;
+	color: #2c3e50;
+	margin: 0 0 5px 0;
+}
+
+.dashboard-header p {
+	font-size: 14px;
+	color: #7f8c8d;
+	margin: 0;
+}
+
+/* KPI Cards Layout */
+.kpi-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+	gap: 20px;
+	margin-bottom: 40px;
+}
+
+/* Glassmorphism Styling */
+.glassmorphic {
+	background: rgba(255, 255, 255, 0.45);
+	backdrop-filter: blur(12px);
+	-webkit-backdrop-filter: blur(12px);
+	border: 1px solid rgba(255, 255, 255, 0.25);
+	border-radius: 16px;
+	box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.08);
+	transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.kpi-card {
+	display: flex;
+	align-items: center;
+	padding: 24px;
+	cursor: pointer;
+}
+
+/* Micro-animations and Hover Effects */
+.kpi-card:hover {
+	transform: translateY(-6px);
+	box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.15);
+	background: rgba(255, 255, 255, 0.6);
+}
+
+.kpi-icon {
+	font-size: 36px;
+	margin-right: 20px;
+	width: 60px;
+	height: 60px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	background: rgba(255, 255, 255, 0.6);
+	box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+	transition: transform 0.3s ease;
+}
+
+.kpi-card:hover .kpi-icon {
+	transform: scale(1.1) rotate(5deg);
+}
+
+.kpi-details {
+	display: flex;
+	flex-direction: column;
+}
+
+.kpi-label {
+	font-size: 13px;
+	color: #64748b;
+	text-transform: uppercase;
+	letter-spacing: 0.8px;
+	font-weight: 600;
+	margin-bottom: 4px;
+}
+
+.kpi-value {
+	font-size: 22px;
+	font-weight: 700;
+	color: #0f172a;
+}
+
+/* Green and Red indicators for Gain/Loss */
+.gain-positive {
+	color: #10b981 !important;
+}
+
+.gain-negative {
+	color: #ef4444 !important;
+}
+
+/* Charts Section */
+.charts-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 30px;
+}
+
+@media (max-width: 992px) {
+	.charts-grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+.chart-container {
+	padding: 24px;
+	min-height: 380px;
+}
+
+.chart-container h4 {
+	font-size: 16px;
+	font-weight: 600;
+	color: #334155;
+	margin: 0 0 20px 0;
+	border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+	padding-bottom: 10px;
+}
+
+.chart-area {
+	min-height: 280px;
+	width: 100%;
+}
