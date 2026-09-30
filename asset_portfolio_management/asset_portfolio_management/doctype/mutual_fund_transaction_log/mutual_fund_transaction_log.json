@@ -1,0 +1,142 @@
+{
+ "actions": [],
+ "creation": "2026-10-01 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "asset",
+  "transaction_date",
+  "transaction_type",
+  "units",
+  "nav",
+  "stamp_duty",
+  "exit_load",
+  "total_amount",
+  "avg_nav_at_transaction",
+  "gain_loss_per_unit",
+  "realized_gain_loss",
+  "journal_entry"
+ ],
+ "fields": [
+  {
+   "fieldname": "asset",
+   "fieldtype": "Link",
+   "label": "Asset",
+   "options": "Asset Portfolio",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "transaction_date",
+   "fieldtype": "Date",
+   "label": "Transaction Date",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "transaction_type",
+   "fieldtype": "Select",
+   "label": "Transaction Type",
+   "options": "Buy\nSell",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "units",
+   "fieldtype": "Float",
+   "label": "Units",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "nav",
+   "fieldtype": "Currency",
+   "label": "NAV",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "stamp_duty",
+   "fieldtype": "Currency",
+   "label": "Stamp Duty",
+   "depends_on": "eval:doc.transaction_type=='Buy'"
+  },
+  {
+   "default": "0",
+   "fieldname": "exit_load",
+   "fieldtype": "Currency",
+   "label": "Exit Load",
+   "depends_on": "eval:doc.transaction_type=='Sell'"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "label": "Total Amount",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "avg_nav_at_transaction",
+   "fieldtype": "Currency",
+   "label": "Average Cost NAV at Transaction",
+   "read_only": 1,
+   "depends_on": "eval:doc.transaction_type=='Sell'"
+  },
+  {
+   "default": "0",
+   "fieldname": "gain_loss_per_unit",
+   "fieldtype": "Currency",
+   "label": "Gain / Loss per NAV (Unit)",
+   "read_only": 1,
+   "depends_on": "eval:doc.transaction_type=='Sell'"
+  },
+  {
+   "default": "0",
+   "fieldname": "realized_gain_loss",
+   "fieldtype": "Currency",
+   "label": "Realized Gain / Loss",
+   "read_only": 1,
+   "depends_on": "eval:doc.transaction_type=='Sell'",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "journal_entry",
+   "fieldtype": "Link",
+   "label": "Journal Entry (Draft)",
+   "options": "Journal Entry",
+   "read_only": 1
+  }
+ ],
+ "is_submittable": 1,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-10-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Asset Portfolio Management",
+ "name": "Mutual Fund Transaction Log",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

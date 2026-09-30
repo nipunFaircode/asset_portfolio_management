@@ -32,6 +32,11 @@ class AssetPortfolio(Document):
 			# Calculations are driven by Stock Transaction Logs, but let's sync fields here
 			self.total_gain_loss = flt(self.current_value) - flt(self.investment_value)
 
+		elif self.asset_type == "Mutual Fund":
+			# Calculations are driven by Mutual Fund Transaction Logs, but let's sync fields here
+			self.current_value = flt(self.units_held) * flt(self.current_nav)
+			self.total_gain_loss = flt(self.current_value) - flt(self.investment_value)
+
 		elif self.asset_type == "Savings Account":
 			# Calculations are driven by Savings Account Transaction Logs
 			self.total_gain_loss = flt(self.current_value) - flt(self.investment_value)

@@ -32,6 +32,21 @@
   "avg_purchase_price",
   "current_market_price",
   "last_updated_date",
+  "mf_section",
+  "folio_number",
+  "amc_name",
+  "mf_scheme_category",
+  "mf_col_break",
+  "units_held",
+  "avg_nav",
+  "current_nav",
+  "mf_last_updated_date",
+  "mf_accounting_section",
+  "mf_company",
+  "mf_investment_account",
+  "mf_acct_col_break",
+  "mf_settlement_account",
+  "mf_gain_loss_account",
   "bond_section",
   "bond_demat_account",
   "bond_face_value",
@@ -88,7 +103,7 @@
    "fieldname": "asset_type",
    "fieldtype": "Select",
    "label": "Asset Type",
-   "options": "Stock\nBond\nFixed Deposit\nSavings Account\nPF\nPPF\nNPS",
+   "options": "Stock\nMutual Fund\nBond\nFixed Deposit\nSavings Account\nPF\nPPF\nNPS",
    "reqd": 1
   },
   {
@@ -229,6 +244,106 @@
    "label": "Last Updated Date",
    "read_only": 1,
    "depends_on": "eval:doc.asset_type=='Stock'"
+  },
+  {
+   "fieldname": "mf_section",
+   "fieldtype": "Section Break",
+   "label": "Mutual Fund Details",
+   "depends_on": "eval:doc.asset_type=='Mutual Fund'"
+  },
+  {
+   "fieldname": "folio_number",
+   "fieldtype": "Data",
+   "label": "Folio Number",
+   "depends_on": "eval:doc.asset_type=='Mutual Fund'"
+  },
+  {
+   "fieldname": "amc_name",
+   "fieldtype": "Data",
+   "label": "AMC Name",
+   "depends_on": "eval:doc.asset_type=='Mutual Fund'"
+  },
+  {
+   "fieldname": "mf_scheme_category",
+   "fieldtype": "Select",
+   "label": "Scheme Category",
+   "options": "\nEquity\nDebt\nHybrid\nIndex\nELSS\nLiquid",
+   "depends_on": "eval:doc.asset_type=='Mutual Fund'"
+  },
+  {
+   "fieldname": "mf_col_break",
+   "fieldtype": "Column Break",
+   "depends_on": "eval:doc.asset_type=='Mutual Fund'"
+  },
+  {
+   "default": "0",
+   "fieldname": "units_held",
+   "fieldtype": "Float",
+   "label": "Units Held",
+   "read_only": 1,
+   "depends_on": "eval:doc.asset_type=='Mutual Fund'"
+  },
+  {
+   "default": "0",
+   "fieldname": "avg_nav",
+   "fieldtype": "Currency",
+   "label": "Average NAV (Cost)",
+   "read_only": 1,
+   "depends_on": "eval:doc.asset_type=='Mutual Fund'"
+  },
+  {
+   "default": "0",
+   "fieldname": "current_nav",
+   "fieldtype": "Currency",
+   "label": "Current NAV",
+   "depends_on": "eval:doc.asset_type=='Mutual Fund'"
+  },
+  {
+   "fieldname": "mf_last_updated_date",
+   "fieldtype": "Datetime",
+   "label": "Last Updated Date",
+   "read_only": 1,
+   "depends_on": "eval:doc.asset_type=='Mutual Fund'"
+  },
+  {
+   "fieldname": "mf_accounting_section",
+   "fieldtype": "Section Break",
+   "label": "Mutual Fund Accounting",
+   "depends_on": "eval:doc.asset_type=='Mutual Fund'",
+   "description": "Set these to auto-create draft Journal Entries from Mutual Fund Transaction Log submissions."
+  },
+  {
+   "fieldname": "mf_company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "depends_on": "eval:doc.asset_type=='Mutual Fund'"
+  },
+  {
+   "fieldname": "mf_investment_account",
+   "fieldtype": "Link",
+   "label": "Investment Account",
+   "options": "Account",
+   "depends_on": "eval:doc.asset_type=='Mutual Fund'"
+  },
+  {
+   "fieldname": "mf_acct_col_break",
+   "fieldtype": "Column Break",
+   "depends_on": "eval:doc.asset_type=='Mutual Fund'"
+  },
+  {
+   "fieldname": "mf_settlement_account",
+   "fieldtype": "Link",
+   "label": "Settlement Account (Bank/Cash)",
+   "options": "Account",
+   "depends_on": "eval:doc.asset_type=='Mutual Fund'"
+  },
+  {
+   "fieldname": "mf_gain_loss_account",
+   "fieldtype": "Link",
+   "label": "Realized Gain / Loss Account",
+   "options": "Account",
+   "depends_on": "eval:doc.asset_type=='Mutual Fund'"
   },
   {
    "fieldname": "bond_section",
